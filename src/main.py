@@ -1,4 +1,5 @@
 import os
+import sys
 import json
 import time
 import math
@@ -16,6 +17,8 @@ DISCORD_MESSAGE_ID = int(os.getenv('DISCORD_MESSAGE_ID'))
 QUERY              = os.getenv('QUERY')
 TEMPLATE           = os.getenv('TEMPLATE')
 EVAL_INTERVAL      = int(os.getenv('EVAL_INTERVAL'))
+
+print("stderrtest", file=sys.stderr)
 
 print(QUERY)
 print(TEMPLATE)
