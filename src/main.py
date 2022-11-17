@@ -32,7 +32,7 @@ async def update():
                                       data=QUERY)
         result_j = await result_r.json()
         print(result_j, file=sys.stderr)
-        newmsg = template.render(r=result_j)
+        newmsg = template.render(r=result_j).replace('\\n', '\n')
         channel = client.get_channel(DISCORD_CHANNEL_ID)
         message = await channel.fetch_message(DISCORD_MESSAGE_ID)
         await message.edit(content=newmsg)
