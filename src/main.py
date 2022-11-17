@@ -17,6 +17,9 @@ QUERY              = os.getenv('QUERY')
 TEMPLATE           = os.getenv('TEMPLATE')
 EVAL_INTERVAL      = int(os.getenv('EVAL_INTERVAL'))
 
+print(QUERY)
+print(TEMPLATE)
+
 template = jinja2.Template(TEMPLATE)
 client = discord.Client(intents=discord.Intents.default())
 
@@ -27,6 +30,7 @@ async def update():
                                       headers={'Content-Type': 'application/json'},
                                       data=QUERY)
         result_j = await result_r.json()
+        print(result_j)
         newmsg = template.render(r=result_j)
         channel = client.get_channel(DISCORD_CHANNEL_ID)
         message = await channel.fetch_message(DISCORD_MESSAGE_ID)
